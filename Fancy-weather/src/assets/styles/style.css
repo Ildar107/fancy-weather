@@ -95,7 +95,7 @@ body {
     display: flex;
 }
 
-.dimensions .farengate, .dimensions .degree {
+.dimensions .fahrenheit, .dimensions .degree {
     width: 44px;
     height: 44px;
     background-color: #4c525599;
@@ -106,7 +106,7 @@ body {
     cursor: pointer;
 }
 
-.dimensions .farengate {
+.dimensions .fahrenheit {
     border-radius: 5px 0px 0px 5px;
 }
 

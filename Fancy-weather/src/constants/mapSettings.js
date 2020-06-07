@@ -5,4 +5,6 @@ const MINSKLNG = 27.567444;
 const ZOOM = 10;
 const MAPSIZE = '100%';
 
-export default { MAPSTYLEEN, MINSKLAT, MINSKLNG, ZOOM, MAPSIZE, TOKEN };
+export default {
+  MAPSTYLEEN, MINSKLAT, MINSKLNG, ZOOM, MAPSIZE, TOKEN,
+};

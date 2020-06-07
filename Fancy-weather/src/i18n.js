@@ -1,5 +1,5 @@
-import i18n from "i18next";
-import { reactI18nextModule } from "react-i18next";
+import i18n from 'i18next';
+import { reactI18nextModule } from 'react-i18next';
 import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Cache from 'i18next-localstorage-cache';
@@ -17,7 +17,7 @@ i18n
     whitelist: [lang.EN, lang.BE, lang.RU],
 
     interpolation: {
-      escapeValue: false // react already safes from xss
+      escapeValue: false, // react already safes from xss
     },
     initImmediate: false,
   })
