@@ -46,9 +46,11 @@ class App extends Component {
 
     changeBackgoundImage = async () => {
         getImage(this.state.weather?.current?.dt).then(x => {
-            setTimeout(() => {
-                document.body.style.backgroundImage = `url(${x.urls.raw})`
-            }, 700);
+            const img = new Image();
+            img.src = x.urls.raw;
+            img.onload = () => {
+                document.body.style.backgroundImage = `url(${img.src})`
+            }
         });
     }
 
