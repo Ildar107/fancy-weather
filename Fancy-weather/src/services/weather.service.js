@@ -22,6 +22,9 @@ async function getCordForCity(cityName, lang) {
     url = url.replace('{cityName}', cityName).replace('{lang}', lang);
     const data = await getData(url);
     const results = data.results.filter(x => x.components._type === 'city');
+    if(results.length === 0) {
+        results = data.results.filter(x => x.components._type === 'state');
+    }
     return results.length > 0 ? results[0].geometry : {};
 }
 
