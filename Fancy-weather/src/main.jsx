@@ -1,10 +1,16 @@
 //import 'bootswatch/dist/journal/bootstrap.min.css';
-import * as React from 'react';
+import React, { Suspense} from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+import './i18n';
+
 import './assets/styles/style.css';
 
 
+
 ReactDOM.render(
-  <span>ПОка не готово!</span>,
+  <Suspense fallback="loading">
+  <App />
+  </Suspense>,
   document.getElementById('root'),
 );

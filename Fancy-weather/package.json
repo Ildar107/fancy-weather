@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --mode development",
     "build": "webpack"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "babel-loader": "^8.1.0",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.5.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -38,11 +39,17 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "i18next": "^19.4.5",
+    "i18next-browser-languagedetector": "^4.2.0",
+    "i18next-localstorage-cache": "^1.1.1",
+    "i18next-xhr-backend": "^3.2.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
+    "react-i18next": "^9.0.10",
     "react-js-pagination": "^3.0.3",
+    "react-map-gl": "^5.2.5",
     "sass-resources-loader": "^2.0.3"
   }
 }

@@ -1,0 +1,19 @@
+{
+    "menu": {
+      "search": "Search"
+    },
+    "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "shortDayOfWeek": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "month": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "weatherProps": {
+      "feelsLike": "Feels like: ",
+      "wind": "Wind: ",
+      "windMeasurment": "m/s",
+      "humidity": "Humidity: "
+    },
+    "geo": {
+      "lat": "Latitude:",
+      "lng": "Longitude:"
+    },
+    "error": "The request failed. Please repeat"
+}

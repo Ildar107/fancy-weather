@@ -1,0 +1,515 @@
+
+
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #11112E;
+    background-size: cover;
+}
+
+.img-hide {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4vw;
+}
+
+.container {
+    padding: 1vw;
+    background-color: #121213a8;
+    border-radius: 23px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+.refresh {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background-color: #aeb5b973;
+    color: #c9cacd;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.refresh img {
+    animation: 2s linear 0s rotate_refresh;
+}
+
+@keyframes rotate_refresh { from { transform: rotate(0deg);} to { transform: rotate(360deg); }  }
+
+@keyframes rotate_reverse_refresh { from { transform: rotate(1deg);} to { transform: rotate(0deg); }  }
+
+.refresh:active img {
+    animation: 2s linear 0s rotate_reverse_refresh;
+   transform: rotate(360deg);
+}
+
+.language {
+    width: 44px;
+    height: 44px;
+    background-color: #aeb5b973;
+    margin-right: 5px;
+    border: 0;
+    border-radius: 5px;
+    color: #c9cacd;
+}
+
+.language > option {
+    background-color: #505456db;
+    color: #c9cacd;
+}
+
+.language:active {
+    transform: scale(0.9);
+}
+
+.language:active, .language:focus {
+    outline: 0;
+    border: 0;
+}
+
+.dimensions {
+    display: flex;
+}
+
+.dimensions .farengate, .dimensions .degree {
+    width: 44px;
+    height: 44px;
+    background-color: #4c525599;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #c9cacd;
+    cursor: pointer;
+}
+
+.dimensions .farengate {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.dimensions .degree {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.dimensions .active {
+    background-color: #aeb5b973;
+}
+
+.search-control form {
+    display: flex;
+    position: relative;
+}
+
+.search-text {
+    background-color: #4c525599;
+    height: 44px;
+    width: 20vw;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid #5e626e;
+    padding-left: 20px;
+    padding-right: 36px;
+    color: #c9cacd;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.search-text::placeholder {
+    /* padding-left: 10px; */
+    color: #c9cacd;
+}
+
+.search-text:active, .search-text:focus {
+    padding-left: 10px;
+    background-color: #aeb5b973;
+    border-color: #aeb5b973;
+    outline: #aeb5b973;
+}
+
+.voice {
+    position: absolute;
+    right: 120px;
+    top: 13px;
+    filter: invert(1);
+
+}
+
+.voice-active {
+    filter:  invert(0);
+}
+
+.search-button {
+    height: 44px;
+    width: 104px;
+    background-color: #aeb5b973;
+    color: #c9cacd;
+    border: 1px solid #5e626e;
+    border-radius: 0px 5px 5px 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.error {
+    display: block;
+    color: red;
+    font-size: 1vw;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.hide {
+    display: none;
+}
+
+button:active {
+    background-color: #575b6c;
+    transform: scale(1.1);
+}
+
+button:active, button:focus {
+    outline: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vw;
+    text-transform: capitalize;
+}
+
+.title .place {
+    font-size: 3vw;
+    margin: 0;
+}
+
+.title .date {
+    font-size: 1.3vw;
+    margin: 5px 0;
+}
+
+.today {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 20px;
+    width: 40vw;
+    height: 18vw;
+    /* background: url('../images/weather.png') no-repeat right top; */
+    background-size: 10vw 8vw;
+}
+
+.today .degree {
+    font-size: 17vw;
+    vertical-align: -10%;
+}
+
+.today img {
+    display: none;
+}
+
+.today img[src*="images"] {
+    display: block;
+}
+
+.today .additional {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2.3vw;
+}
+
+
+
+.additional span {
+    margin: 5px 0;
+    font-size: 1vw;
+}
+
+.additional img {
+    margin-left: -3vw;
+    height: 13vw;
+    width: 14vw;
+}
+
+.days {
+    display: flex;
+    align-content: center;
+}
+
+.day {
+    margin-right: 2vw;
+    text-transform: capitalize;
+}
+
+.degree-container {
+    display: flex;
+    align-content: flex-start;
+}
+
+.day img {
+    height: 100%;
+}
+
+.day .degree {
+    font-size: 4vw;
+}
+
+.weather-place {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 40vw;
+}
+
+.map-container {
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.map-container > div {
+    width: 100% !important;
+    height: 27vw !important;
+}
+
+  
+.map {
+    width: 100% !important;
+    border-radius: 5%;
+}
+
+.marker__image {
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+}
+
+.mapboxgl-ctrl-bottom-left {
+    display: none;
+}
+.overlays {
+    border-radius: 27px;
+    box-shadow: inset 1px 1px 9px 10px #1f191987;
+}
+
+.mapboxgl-ctrl-bottom-right {
+    display: none;
+}
+
+.mark__container:hover .mark__title {
+    display: flex;
+}
+
+.mark__title {
+    display: none;
+    position: absolute;
+    top: 35px;
+    white-space: nowrap;
+    left: 0;
+    background-color: #5bc0de;
+    color: white;
+    padding: 5px;
+    z-index: 5;
+    text-align: center !important;
+}
+
+@media (max-width: 1394px) {
+
+    body {
+        background-size: auto;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-text {
+        width: 29vw;
+    }
+
+    .weather-info {
+        width: 100%;
+    }
+
+    .title .place {
+        font-size: 6vw;
+    }
+
+    .title .date {
+        font-size: 2.3vw;
+        margin: 5px 0;
+    }
+
+    .today {
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+    }
+
+    .additional img {
+        position: absolute;
+        margin-left: -91px;
+        top: -13vw;
+        height: 29vw;
+        right: 15vw;
+        width: 31vw;
+    }
+
+    .today .degree {
+        font-size: 21vw;
+        margin-right: 2vw;
+    }
+
+    .additional span {
+        font-size: 2vw;
+    }
+
+    .days {
+        justify-content: center;
+        margin-top: 6vw;
+    }
+
+    .day span {
+        font-size: 2vw;
+    }
+
+    .day .degree {
+        font-size: 8vw;
+    }
+
+    .day img {
+        height: 9vw;
+    }
+
+    .weather-place {
+        width: 100%;
+    }
+
+    .map-container > div {
+        height: 37vw !important;
+    }
+}
+
+
+@media (max-width: 612px) {
+
+    .controls {
+        margin-top: 3vw;
+        flex-direction: column;
+    }
+
+    .search-control {
+        margin-top: 3vw;
+    }
+
+    .search-text {
+        width: 51vw;
+    }
+
+    .title {
+        align-items: center;
+    }
+
+    .title .place {
+        font-size: 9vw;
+    }
+
+    .title .date {
+        font-size: 4.3vw;
+    }
+
+    .today {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .today .degree {
+        font-size: 28vw;
+    }
+
+    .additional img {
+        top: -6vw;
+        right: -2vw;
+    }
+
+    .today .additional {
+        align-items: center;
+    }
+
+    .additional span {
+        font-size: 5vw;
+    }
+
+    .days {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .day {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .day span {
+        font-size: 5vw;
+    }
+
+    .day .degree {
+        font-size: 15vw;
+    }
+
+    .degree-container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .day img {
+        height: 20vw;
+    }
+
+    .map-container > div {
+        height: 63vw !important;
+    }
+
+}
