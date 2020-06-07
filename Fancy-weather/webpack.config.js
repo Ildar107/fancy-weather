@@ -59,11 +59,11 @@ module.exports = {
       patterns: [
          {
           from: './src/assets/images/',
-          to: '/images'
+          to: './images'
          },
          {
           from: './src/assets/locales/',
-          to: '/locales'
+          to: './locales'
         }
 
     ]
