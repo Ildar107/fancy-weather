@@ -8,6 +8,7 @@ import { getForecast, getCordForCity, getCityLocalization } from './services/wea
 import { getCityFromIP, getImage } from './services/common.service';
 import weatherIconSearch from './helpers/weatherIconSearch';
 import getConvertTemp from './helpers/getConvertTemp';
+import getLocalDate from './helpers/getLocalDate';
 
 
 class App extends Component {
@@ -86,7 +87,7 @@ class App extends Component {
         const img = new Image();
         img.src = weatherIconSearch(
           weatherData.current.weather[0].id,
-          new Date(weatherData.current.dt * 1000),
+          getLocalDate(new Date(weatherData.current.dt * 1000), weatherData.timezone),
         );
         weatherData.current.temp = this.state.useFahrenheit
           ? weatherData.current.temp + 30
@@ -95,7 +96,10 @@ class App extends Component {
         weatherData.daily = weatherData.daily.slice(1, 4).map((x) => {
           const dayItem = x;
           const img1 = new Image();
-          img1.src = weatherIconSearch(dayItem.weather[0].id, new Date(dayItem.dt * 1000));
+          img1.src = weatherIconSearch(
+            dayItem.weather[0].id,
+            getLocalDate(new Date(dayItem.dt * 1000), weatherData.timezone),
+          );
           dayItem.imgSrc = img1.src;
           dayItem.temp.day = this.state.useFahrenheit ? dayItem.temp.day + 30 : dayItem.temp.day;
           return dayItem;
@@ -106,7 +110,7 @@ class App extends Component {
           placeTitle: localData,
           weather: weatherData,
           markCord: { latitude: cord.lat, longitude: cord.lng },
-          date: new Date(weatherData.current.dt * 1000),
+          date: getLocalDate(new Date(weatherData.current.dt * 1000), weatherData.timezone),
           error: false,
         });
       } else {
