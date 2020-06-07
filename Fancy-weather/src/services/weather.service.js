@@ -21,7 +21,7 @@ async function getCordForCity(cityName, lang) {
     let url = cordApiUrl.replace('{apiKey}', apiKeys.OPENCAGEDATAAPIKEY);
     url = url.replace('{cityName}', cityName).replace('{lang}', lang);
     const data = await getData(url);
-    const results = data.results.filter(x => x.components._type === 'city');
+    let results = data.results.filter(x => x.components._type === 'city');
     if(results.length === 0) {
         results = data.results.filter(x => x.components._type === 'state');
     }
