@@ -123,14 +123,14 @@ class App extends Component {
             if(e.currentTarget.classList.contains('farengate')) {
                 newWeather.current.temp = newWeather.current.temp + 30;
                 newWeather.daily.map(x => {
-                    x.temp.day = x.temp.day + 30;
+                    x.temp.day = (x.temp.day*5)/9 + 32;
                     return x;
                 })
                 this.setState({weather:newWeather, useFarengate: true });
             } else {
                 newWeather.current.temp = newWeather.current.temp - 30;
                 newWeather.daily.map(x => {
-                    x.temp.day = x.temp.day - 30;
+                    x.temp.day = ((x.temp.day - 32)*9)/5;
                     return x;
                 })
                 this.setState({weather:newWeather, useFarengate: false });
