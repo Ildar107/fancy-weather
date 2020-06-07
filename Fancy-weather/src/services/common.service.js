@@ -21,13 +21,13 @@ async function getCityFromIP() {
 }
 
 async function getImage(dt) {
-  let query = 'nightsky';
+  let query = 'night,sky';
   if (dt) {
     const newDate = new Date(dt * 1000);
     const hour = newDate.getHours();
     const season = getSeason(newDate);
     const dayPhase = hour >= 5 && hour <= 20 ? 'day' : 'night';
-    query = season + dayPhase;
+    query = `${season},${dayPhase}`;
   }
   const url = imgApiUrl.replace('{apiKey}', apiKeys.IMAGEAPIKEY).replace('{query}', query);
   const data = await getData(url);
