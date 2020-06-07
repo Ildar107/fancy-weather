@@ -97,6 +97,7 @@ class App extends Component {
             console.log(weatherData)
             console.log(localData)
             this.setState({
+                city: localData.city,
                 mapSettings: newMapSettings,
                 placeTitle: localData,
                 weather: weatherData,
