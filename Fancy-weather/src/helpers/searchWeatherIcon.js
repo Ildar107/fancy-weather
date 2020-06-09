@@ -1,11 +1,16 @@
 import weatherConditions from '../constants/weatherCondions';
 
-export default function weatherIconSearch(weatherId, dt) {
+export default function searchWeatherIcon(weatherId, dt) {
   const weatherCondition = Object
     .values(weatherConditions.WEATHERCONDITIONS)
     .filter((x) => x.idMin <= weatherId && x.idMax >= weatherId)[0];
   const hour = dt.getHours();
-  if (hour >= 5 && hour <= 21) {
+
+  if (!weatherCondition) {
+    return '';
+  }
+
+  if (hour >= 5 && hour <= 20) {
     return weatherCondition.imgDaySrc;
   }
 

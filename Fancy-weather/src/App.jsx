@@ -6,7 +6,7 @@ import WeatherPlace from './components/weatherPlace/WeatherPlace';
 import mapSettings from './constants/mapSettings';
 import { getForecast, getCordForCity, getCityLocalization } from './services/weather.service';
 import { getCityFromIP, getImage } from './services/common.service';
-import weatherIconSearch from './helpers/weatherIconSearch';
+import searchWeatherIcon from './helpers/searchWeatherIcon';
 import getConvertTemp from './helpers/getConvertTemp';
 import getLocalDate from './helpers/getLocalDate';
 
@@ -85,7 +85,7 @@ class App extends Component {
       newMapSettings.longitude = cord.lng;
       if (weatherData && weatherData.current && weatherData.daily) {
         const img = new Image();
-        img.src = weatherIconSearch(
+        img.src = searchWeatherIcon(
           weatherData.current.weather[0].id,
           getLocalDate(new Date(weatherData.current.dt * 1000), weatherData.timezone),
         );
@@ -96,7 +96,7 @@ class App extends Component {
         weatherData.daily = weatherData.daily.slice(1, 4).map((x) => {
           const dayItem = x;
           const img1 = new Image();
-          img1.src = weatherIconSearch(
+          img1.src = searchWeatherIcon(
             dayItem.weather[0].id,
             getLocalDate(new Date(dayItem.dt * 1000), weatherData.timezone),
           );

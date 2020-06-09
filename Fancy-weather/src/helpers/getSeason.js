@@ -1,4 +1,8 @@
 export default function getSeason(dt) {
+  if (!dt) {
+    return 'winter';
+  }
+
   const month = dt.getMonth();
   let season = '';
   switch (month) {

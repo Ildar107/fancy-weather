@@ -22,6 +22,10 @@ async function getCurrentWeather(cityName) {
 }
 
 async function getForecast(latitude, longitude, lang) {
+  if (typeof latitude !== 'number' || typeof longitude !== 'number') {
+    return null;
+  }
+
   let url = forecastWeatherApiUrl.replace('{apiKey}', apiKeys.WEATHERAPIKEY);
   url = url.replace('{lon}', longitude).replace('{lat}', latitude);
   url = url.replace('{lang}', lang);
@@ -30,6 +34,10 @@ async function getForecast(latitude, longitude, lang) {
 }
 
 async function getCordForCity(cityName, lang) {
+  if (!cityName) {
+    return null;
+  }
+
   let url = cordApiUrl.replace('{apiKey}', apiKeys.OPENCAGEDATAAPIKEY);
   url = url.replace('{cityName}', cityName).replace('{lang}', lang);
   const data = await getData(url);
@@ -41,6 +49,10 @@ async function getCordForCity(cityName, lang) {
 }
 
 async function getCityLocalization(latitude, longitude, lang) {
+  if (typeof latitude !== 'number' || typeof longitude !== 'number') {
+    return {};
+  }
+
   let url = cordApiUrl.replace('{apiKey}', apiKeys.OPENCAGEDATAAPIKEY);
   url = url.replace('{cityName}', `${latitude},${longitude}`).replace('{lang}', lang);
   const data = await getData(url);

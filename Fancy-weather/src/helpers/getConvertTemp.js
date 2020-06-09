@@ -1,7 +1,8 @@
 export default function getConvertTemp(useFahrenheit, temp) {
+  if (typeof temp !== 'number') return NaN;
   if (useFahrenheit) {
-    return (temp * 5) / 9 + 32;
+    return (temp * 9) / 5 + 32;
   }
 
-  return ((temp - 32) * 9) / 5;
+  return ((temp - 32) * 5) / 9;
 }
