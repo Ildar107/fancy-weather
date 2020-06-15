@@ -15,7 +15,7 @@ class WeatherItem extends Component {
           <div className="degree-container">
             <span className="degree">
               {this.props.degree}
-              °
+              &deg;
             </span>
             <img className="weather-icon" src="./images/cloudy.svg" alt="condition" />
           </div>

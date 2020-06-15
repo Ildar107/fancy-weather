@@ -45,14 +45,14 @@ class WeatherInfo extends Component {
         <div className="today">
           <div className="degree">
             {Math.round(this.props.weather?.current?.temp)}
-            °
+            &deg;
           </div>
           <div className="additional">
             <img src={this.props.weather.imgSrc} alt="condtion" />
             <span className="weather-condition">{ this.props.weather?.current?.weather[0].description }</span>
             <span>
               { t('weatherProps.feelsLike') + this.props.weather?.current?.feels_like }
-              °
+              &deg;
             </span>
             <span>
               {`${t('weatherProps.wind') + this.props.weather?.current?.wind_speed} ${t('weatherProps.windMeasurment')}`}
