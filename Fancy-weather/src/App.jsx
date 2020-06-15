@@ -33,8 +33,6 @@ class App extends Component {
         longitude: mapSettings.MINSKLNG,
       },
     };
-
-    this.init();
   }
 
     init = async () => {
@@ -90,7 +88,7 @@ class App extends Component {
           getLocalDate(new Date(weatherData.current.dt * 1000), weatherData.timezone),
         );
         weatherData.current.temp = this.state.useFahrenheit
-          ? weatherData.current.temp + 30
+          ? getConvertTemp(this.state.useFahrenheit, weatherData.current.temp)
           : weatherData.current.temp;
         weatherData.imgSrc = img.src;
         weatherData.daily = weatherData.daily.slice(1, 4).map((x) => {
@@ -101,7 +99,9 @@ class App extends Component {
             getLocalDate(new Date(dayItem.dt * 1000), weatherData.timezone),
           );
           dayItem.imgSrc = img1.src;
-          dayItem.temp.day = this.state.useFahrenheit ? dayItem.temp.day + 30 : dayItem.temp.day;
+          dayItem.temp.day = this.state.useFahrenheit
+            ? getConvertTemp(this.state.useFahrenheit, dayItem.temp.day)
+            : dayItem.temp.day;
           return dayItem;
         });
         this.setState({
@@ -148,9 +148,9 @@ class App extends Component {
     }
 
 
-    // componentDidMount () {
-    //     this.init();
-    // }
+    componentDidMount() {
+      this.init();
+    }
 
     render = () => (
       <div className="container">
